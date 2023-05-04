@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <title>Two linked checkboxes</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="myCtrl">
+    <input type="checkbox" ng-model="isChecked" />
+    <input type="checkbox" ng-model="isChecked" />
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.isChecked = false;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="(country, cities) in workers">{{ country }}: <span ng-repeat="city in cities">{{ city + " " }}</span></li>
+    </ul>
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.workers = {
+        Україна: ['Київ', 'Львів'],
+        Польща: ['Варшава', 'Лодзь'],
+        Великобританія: ['Лондон', 'Манчестер']
+      };
+    });
+  </script>
+</body>
+</html>

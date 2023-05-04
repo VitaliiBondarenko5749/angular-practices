@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="num in nums | orderBy:sortOrder">{{ num }}</li>
+    </ul>
+    <a href="#" ng-click="sortOrder = (sortOrder === 'num') ? '-num' : 'num'">Відсортувати</a>
+    <button ng-click="sortOrder = 'num'" ng-disabled="sortOrder !== ''">Сортувати по зростанню</button>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.nums = [3, 1, 4, 2, 5];
+      $scope.sortOrder = '';
+    });
+  </script>
+</body>
+
+</html>

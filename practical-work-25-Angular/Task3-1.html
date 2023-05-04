@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Example</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<ul>
+		<li ng-repeat="lang in languages">{{ lang }}</li>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.languages = ['html', 'css', 'js', 'php'];
+		});
+	</script>
+</body>
+</html>

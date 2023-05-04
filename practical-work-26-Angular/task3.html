@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="num in nums">{{ num }}</li>
+    </ul>
+    <a href="" ng-click="reverse()">Reverse list</a>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.nums = [1, 2, 3, 4, 5];
+
+      $scope.reverse = function() {
+        $scope.nums.reverse();
+      };
+    });
+  </script>
+</body>
+
+</html>

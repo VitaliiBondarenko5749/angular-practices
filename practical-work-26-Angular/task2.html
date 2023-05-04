@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller="myCtrl">
+        <span ng-repeat-start="num in nums">{{ num * num }}</span>
+        <span ng-repeat-end> </span>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.nums = [1, 2, 3, 4, 5];
+        });
+    </script>
+</body>
+
+</html>

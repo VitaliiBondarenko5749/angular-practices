@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="user in users">{{ user }}</li>
+    </ul>
+    <button ng-click="addUser()">Додати користувача</button>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.users = ['Микола', 'Василь', 'Петро'];
+      $scope.newUsers = ['Аня', 'Валя', 'Маша'];
+      
+      $scope.addUser = function() {
+        if ($scope.newUsers.length > 0) {
+          var newUser = $scope.newUsers.shift();
+          $scope.users.push(newUser);
+        } else {
+          $scope.users.sort();
+        }
+      };
+    });
+  </script>
+</body>
+
+</html>

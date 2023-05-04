@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<label for="numberInput">Введіть число: </label>
+		<input type="number" id="numberInput" ng-model="number" ng-change="calculateSquare()">
+
+		<p>Квадрат числа {{number}} дорівнює {{square}}</p>
+	</div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.calculateSquare = function() {
+				$scope.square = Math.pow($scope.number, 2);
+			}
+		});
+	</script>
+</body>
+</html>

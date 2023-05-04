@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Example</title>
+</head>
+<body ng-app="myApp">
+	<ul ng-controller="myCtrl">
+		<li ng-repeat="worker in workers">
+			Ім'я: {{worker.name}}, вік: {{worker.age}}, зарплата: {{worker.salary}}
+		</li>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.workers = [
+				{name: 'Микола', age: 30, salary: 400},
+				{name: 'Василь', age: 31, salary: 500},
+				{name: 'Петро', age: 32, salary: 600},
+			];
+		});
+	</script>
+</body>
+</html>

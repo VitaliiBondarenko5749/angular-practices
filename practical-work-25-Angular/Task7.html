@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Example</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="myCtrl">
+		<ul>
+			<li ng-repeat="lang in langs">{{lang}}</li>
+		</ul>
+		<a href="#" ng-click="changeLang()">Змінити мову</a>
+	</div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.langs = ['html', 'css', 'js', 'php'];
+
+			$scope.changeLang = function() {
+				var index = $scope.langs.indexOf('php');
+				if (index !== -1) {
+					$scope.langs[index] = 'sql';
+				}
+			};
+		});
+	</script>
+</body>
+</html>

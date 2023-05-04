@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular Example</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+	<p>Ім'я: {{name}}</p>
+	<p>Прізвище: {{surname}}</p>
+	<p>Вік: {{age}}</p>
+
+	<a href="#" ng-click="name = 'Петро'">Змінити ім'я</a>
+	<a href="#" ng-click="surname = 'Петренко'">Змінити прізвище</a>
+	<a href="#" ng-click="age = 30">Змінити вік</a>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.name = 'Іван';
+			$scope.surname = 'Іванів';
+			$scope.age = 25;
+		});
+	</script>
+
+</body>
+</html>

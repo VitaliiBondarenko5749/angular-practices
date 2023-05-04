@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Remove Item from Array Example</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<h1>List of Programming Languages</h1>
+	<ul>
+		<li ng-repeat="language in languages">{{ language }}</li>
+	</ul>
+	<p>
+		<a href="#" ng-click="removeLanguage()">Remove HTML</a>
+	</p>
+
+	<script>
+		var app = angular.module("myApp", []);
+
+		app.controller("myCtrl", function($scope) {
+			$scope.languages = ["html", "css", "js", "php"];
+
+			$scope.removeLanguage = function() {
+				var index = $scope.languages.indexOf("php");
+				if (index > -1) {
+					$scope.languages.splice(index, 1);
+				}
+			};
+		});
+	</script>
+</body>
+</html>

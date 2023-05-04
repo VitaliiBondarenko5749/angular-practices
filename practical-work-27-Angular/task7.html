@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+  <head>
+    <title>Course list with checkboxes</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.courses = {
+          'html': true,
+          'css': true,
+          'php': false,
+          'js': true,
+          'angular': false
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li ng-repeat="(key, value) in courses">
+        <input type="checkbox" ng-model="courses[key]" ng-checked="value" />
+        {{key}}
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Angular Example</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+     <h1>Список мов програмування:</h1>
+
+     <ul>
+          <li ng-repeat="language in languages">{{language}}</li>
+     </ul>
+
+     <button ng-click="addLanguage()">Додати мову</button>
+
+     <script>
+          var app = angular.module('myApp', []);
+          app.controller('myCtrl', function ($scope) {
+               $scope.languages = ['html', 'css', 'js', 'php'];
+
+               $scope.addLanguage = function () {
+                    $scope.languages.push('sql');
+               };
+          });
+     </script>
+</body>
+
+</html>

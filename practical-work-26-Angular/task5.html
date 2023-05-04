@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="lang in langs" ng-click="toggleClicked(lang)">{{ lang.name }}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.langs = [
+        { name: 'html', clicked: false },
+        { name: 'css', clicked: false },
+        { name: 'js', clicked: false },
+        { name: 'php', clicked: false }
+      ];
+
+      $scope.toggleClicked = function(lang) {
+        if (lang.clicked) {
+          lang.name = lang.name.slice(0, -1);
+        } else {
+          lang.name += '+';
+        }
+        lang.clicked = !lang.clicked;
+      }
+    });
+  </script>
+</body>
+
+</html>
